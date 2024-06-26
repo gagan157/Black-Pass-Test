@@ -1,0 +1,44 @@
+.center_txt {
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 15%;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+
+.wallet_div_t {
+    gap: 10px;
+    cursor: pointer;
+  }
+  .wallet_div_t:hover .center_txt{
+    color: #1cf9cf;
+    cursor: pointer;
+  }
+  
+  .outer_circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 0.54px dashed #fafafa;
+  }
+  
+  .inner_circle {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 0.54px solid #1cf9cf;
+  }
+  
+  .center_circle {
+    width: 1.96px;
+    height: 1.96px;
+    background: #fafafa;
+  }
+  
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
