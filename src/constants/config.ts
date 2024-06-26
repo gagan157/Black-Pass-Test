@@ -1,7 +1,6 @@
 // export const ENV = process.env.REACT_APP_ENV || "PROD";
 export const ENV =
   window.location.href.includes("astranova.world") ||
-  window.location.href.includes("http://localhost:3000") ||
     window.location.href.includes("black-pass-frontend-prod.azurewebsites.net")
     ? "PROD"
     : "DEV";

@@ -145,3 +145,7 @@ export const GET_AVATAR_LIST =(params:any) => axios.get(`${API_ROUTES.AVATAR_LIS
     export const GET_DEVIENT_WALLETS = (params:any) => axios.get(`${API_ROUTES.DEVIENT_WALLETS}` ,{params});
 
     export const WALLET_DISCONNECT = (params:any) => axios.put(`${API_ROUTES.WALLET_DISCONNECT}` , {}, {params});
+
+    export const GET_CDC_QR = () => axios.get(`${API_ROUTES.CDC_QR}`);
+
+    export const GET_CDC_QR_STATUS = (params:any) => axios.get(`${API_ROUTES.CDC_QR_STATUS}` , {params});
