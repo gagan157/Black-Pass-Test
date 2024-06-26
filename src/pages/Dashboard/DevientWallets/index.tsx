@@ -102,6 +102,7 @@ export const DevientWallets = () => {
         console.log("first")
         handleConnectWalletWithETH(address)
     }
+    return () => {isConnected && disconnect()}
   },[isConnected])
 
   return (

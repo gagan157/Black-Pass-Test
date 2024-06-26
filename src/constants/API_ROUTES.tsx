@@ -60,4 +60,6 @@ export const API_ROUTES = {
   CONNECT_WALLET_ETH: `${BASE_URL}/user-module/connect-wallet-eth`,
   DEVIENT_WALLETS: `${BASE_URL}/user-module/deviants`,
   WALLET_DISCONNECT: `${BASE_URL}/user-module/disconnect-wallet`,
+  CDC_QR: `${BASE_URL}/cdc/qr`,
+  CDC_QR_STATUS: `${BASE_URL}/cdc/qr-status`,
 };
