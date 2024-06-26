@@ -28,6 +28,7 @@ import { API_ROUTES } from "constants/API_ROUTES";
 import { EventButtonNames, trackButtonClick } from "constants/cookie3";
 import { HowToPlayModal } from "components/Molecules/PopUp/HowToPlay";
 import { formatNumber } from "constants/utils";
+import { ScanQR } from "pages/Dashboard/DevientWallets/popup/scanQr";
 
 export const requiredChainID = RPC_LINK?.includes("testnet") ? 13473 : 13371;
 
@@ -98,6 +99,7 @@ export const Header = () => {
   }: any = useUser();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const ref = useBlur(()=>setReportBug(false));
+  const [isScanModal , setIsScanModal] = useState<boolean>(false);
 
   const HeaderList = [
     {
@@ -171,6 +173,10 @@ export const Header = () => {
       trackButtonClick(EventButtonNames.LEADERBOARD, user?.id)
     }
   };
+
+  const handleScanQRToggal = ()=> {
+    setIsScanModal(!isScanModal)
+  }
 
   const handleAstroLogoClick = () => {
     const accessToken = localStorage.getItem('accessToken') 
@@ -262,8 +268,8 @@ export const Header = () => {
             );
           })}
         </div>
-        <div className="relative flex items-center gap-3 mobile:gap-1" ref={profileref}>
-          <div className="flex items-center gap-3 mobile:gap-2">
+        <div className="relative flex items-center gap-3 mobile:gap-1 md:w-[50%] " ref={profileref}>
+          <div className="flex items-center gap-3 mobile:gap-2 md:w-full md:justify-end">
             <div
               className="flex item-center justify-center"
               onClick={() =>{ 
@@ -306,6 +312,18 @@ export const Header = () => {
                 </Link>
               </div>
             }
+            
+
+            <Button
+                onClick={handleScanQRToggal}
+                isBorder={true}
+                bgColor={true}
+                isBorderLabel="connect cdc"                
+                color="white"
+                CLASSNAME=" text-text-primary group-hover:text-text-secondary !px-2"
+                className='!w-full lg:!max-w-[200px]'
+                />
+
           </div>
           <div className="flex items-center gap-3 mobile:gap-1">
             {(pathname === "/dashboard" ||
@@ -649,6 +667,7 @@ export const Header = () => {
         />
       )}
       {reportBug && <ReportBugModal onClose={() => setReportBug(false)} />}
+      {isScanModal && <ScanQR close={handleScanQRToggal} />}   
     </div>
   );
 };

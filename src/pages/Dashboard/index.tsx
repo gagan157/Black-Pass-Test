@@ -232,7 +232,7 @@ export const Dashboard = () => {
   const [creatorQuestModal, setCreatorQuestModal] = useState(false);
 
   const {dailySpinRewardsData , handleLoadMoreData, hasMoreData, isloading:spinHinstoryLoading, handleresetState, handleDailyReward} = useDailySpinReward(showCredited)
-  const [isScanModal , setIsScanModal] = useState<boolean>(false);
+ 
 
   let refferalLink: string;
   if (window.location.href.includes("astranova.world")) {
@@ -1086,9 +1086,6 @@ export const Dashboard = () => {
     localStorage.removeItem(ActivityType)    
   }
 
-  const handleScanQRToggal = ()=> {
-    setIsScanModal(!isScanModal)
-  }
 
   useEffect(()=>{
     const isFollowTwitter = localStorage.getItem('follow_twitter') ? JSON.parse(localStorage.getItem('follow_twitter') || "") : ""
@@ -1108,19 +1105,7 @@ export const Dashboard = () => {
       {isLoading ? <Loader /> : null}
       {!isLoading && (
         <div className="">
-          <div className="px-5 md:flex items-center justify-center">
-
-          <Button
-                    onClick={handleScanQRToggal}
-                    isBorder={true}
-                    bgColor={true}
-                    isBorderLabel="connect cdc"
-                    disable={loading}
-                    color="white"
-                    CLASSNAME=" text-text-primary group-hover:text-text-secondary !px-2"
-                    className='!w-full lg:!max-w-[200px]'
-                    />
-            </div>
+          
           <div className="flex flex-col gap-24 justify-center items-center  bg-dashboardBg bg-cover bg-center w-full mobile:flex-col mobile:gap-0 mobile:h-full md:flex-col md:h-full py-5 md:py-14 lg:flex-col lg:py-5 xl:flex-row">
             <div className="flex flex-col gap-3 ">
               <div
@@ -2849,7 +2834,7 @@ export const Dashboard = () => {
 
       {creatorQuestModal && <CreatorQuest onClose={()=> setCreatorQuestModal(false)} questMission={ ()=> getMissionsTabs()} />} 
 
-      {isScanModal && <ScanQR close={handleScanQRToggal} />}   
+      
     </>
   );
 };
