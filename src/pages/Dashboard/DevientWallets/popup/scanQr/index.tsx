@@ -117,7 +117,7 @@ export const ScanQR = ({close} : {close:() => void}) => {
             <QRCode
               size={256}
               style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-              value={""}
+              value={qrVal?.qr as string}
               viewBox={`0 0 256 256`}
             />
           </div>
