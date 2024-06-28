@@ -117,8 +117,13 @@ export const ScanQR = ({close} : {close:() => void}) => {
             <QRCode
               size={256}
               style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-              value={qrVal?.qr as string}
+              value={`data:image/png;base64,${qrVal?.qr || ""}`}
               viewBox={`0 0 256 256`}
+            />
+            <img
+              className="h-full w-full object-fill mt-10"
+              src={`data:image/png;base64,${qrVal?.qr || ""}`}
+              alt=""
             />
           </div>
         </div>
